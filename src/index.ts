@@ -189,7 +189,7 @@ const readdir = ( rootPath: string, options?: Options ): Promise<Result> => {
 
       promise.then ( () => {
 
-        const dirmap = map[rootPath] = { directories: [], directoriesNames: new Set (), directoriesNamesToPaths: {}, files: [], filesNames: new Set (), filesNamesToPaths: {}, symlinks: [], symlinksNames: new Set (), symlinksNamesToPaths: {} };
+        const dirmap = map[rootPath] = { directories: ([] as string[]), directoriesNames: new Set (), directoriesNamesToPaths: {}, files: [] as string[], filesNames: new Set (), filesNamesToPaths: {}, symlinks: [] as string[], symlinksNames: new Set (), symlinksNamesToPaths: {} };
 
         handleDirents ( dirmap, rootPath, dirents, depth );
 
@@ -218,7 +218,7 @@ const readdir = ( rootPath: string, options?: Options ): Promise<Result> => {
         if ( signal.aborted ) return decrement ();
 
         const name = path.basename ( realPath );
-        const dirmap = map[rootPath] = { directories: [], directoriesNames: new Set (), directoriesNamesToPaths: {}, files: [], filesNames: new Set (), filesNamesToPaths: {}, symlinks: [], symlinksNames: new Set (), symlinksNamesToPaths: {} };
+        const dirmap = map[rootPath] = { directories: [] as string[], directoriesNames: new Set (), directoriesNamesToPaths: {}, files: [] as string[], filesNames: new Set (), filesNamesToPaths: {}, symlinks: [] as string[], symlinksNames: new Set (), symlinksNamesToPaths: {} };
 
         handleStat ( dirmap, realPath, name, stat, depth );
 

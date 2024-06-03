@@ -1,7 +1,7 @@
 
 /* IMPORT */
 
-import makeNakedPromise from 'promise-make-naked';
+import makeNakedPromise from '@phlegmaticprogrammer/promise-make-naked';
 import type {Callback} from './types';
 
 /* MAIN */
